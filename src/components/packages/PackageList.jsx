@@ -1,41 +1,44 @@
 import { useEffect, useState } from "react";
 import "./Packages.css";
 import { getAllPackages } from "../../services/packageService";
+import { PlantPackage } from "./Package";
 
 export const PackageList = () => {
   const [allPackages, setAllPackages] = useState([]);
+  const [filteredPackages, setFilteredPackages] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     getAllPackages().then((packagesArray) => {
       setAllPackages(packagesArray);
+      setFilteredPackages(packagesArray);
       console.log("Packages Set!");
     });
   }, []);
 
+  useEffect(() => {
+    const foundPackage = allPackages.filter((plantPackage) =>
+      plantPackage.description.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredPackages(foundPackage);
+  }, [searchTerm, allPackages]);
+
   return (
     <div className="packages-container">
       <h2>Packages</h2>
+      <div className="filter-bar">
+        <input
+          onChange={(event) => {
+            setSearchTerm(event.target.value);
+          }}
+          type="text"
+          placeholder="Search Plant Packages"
+          className="package-search"
+        />
+      </div>
       <article className="packages">
-        {allPackages.map((plantPackage) => {
-          return (
-            <section className="package" key={plantPackage.id}>
-              <header className="package-info">
-                Package #{plantPackage.id}
-              </header>
-              <div>
-                <img src={plantPackage.image} alt="image of plant package" />
-              </div>
-              <div className="package-info">
-                Description: {plantPackage.description}
-              </div>
-              <div>
-                <div className="package-info">Availability: </div>
-                <div>
-                  {plantPackage.availability ? "In Stock" : "Out of Stock"}
-                </div>
-              </div>
-            </section>
-          );
+        {filteredPackages.map((plantObj) => {
+          return <PlantPackage plantPackage={plantObj} key={plantObj.id} />;
         })}
       </article>
     </div>
