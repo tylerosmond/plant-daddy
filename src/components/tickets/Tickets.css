@@ -49,3 +49,10 @@
   .new-event-btn {
     margin-right: 2rem;
   }
+
+  .tickets-title {
+      display: flex;
+      justify-content: center;
+      color: var(--primary);
+    
+  }

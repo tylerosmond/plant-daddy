@@ -27,32 +27,36 @@ export const TicketList = () => {
   }, [showActiveOnly, allTickets]);
 
   return (
-    <div className="tickets-container">
-      <h2>Events</h2>
-      <div>
-        <button className="new-event-btn btn-info">New Event</button>
-        <button
-          className="filter-btn btn-primary"
-          onClick={() => {
-            setShowActiveOnly(true);
-          }}
-        >
-          Active
-        </button>
-        <button
-          className="filter-btn btn-secondary"
-          onClick={() => {
-            setShowActiveOnly(false);
-          }}
-        >
-          Show All
-        </button>
+    <div>
+      <div className="tickets-title">
+        <h1>Events</h1>
       </div>
-      <article className="tickets">
-        {filteredTickets.map((ticketObj) => {
-          return <Ticket ticket={ticketObj} key={ticketObj.id} />;
-        })}
-      </article>
+      <div className="tickets-container">
+        <div>
+          <button className="new-event-btn btn-info">New Event</button>
+          <button
+            className="filter-btn btn-primary"
+            onClick={() => {
+              setShowActiveOnly(true);
+            }}
+          >
+            Active
+          </button>
+          <button
+            className="filter-btn btn-secondary"
+            onClick={() => {
+              setShowActiveOnly(false);
+            }}
+          >
+            Show All
+          </button>
+        </div>
+        <article className="tickets">
+          {filteredTickets.map((ticketObj) => {
+            return <Ticket ticket={ticketObj} key={ticketObj.id} />;
+          })}
+        </article>
+      </div>
     </div>
   );
 };

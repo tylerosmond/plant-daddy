@@ -24,23 +24,27 @@ export const PackageList = () => {
   }, [searchTerm, allPackages]);
 
   return (
-    <div className="packages-container">
-      <h2>Packages</h2>
-      <div className="filter-bar">
-        <input
-          onChange={(event) => {
-            setSearchTerm(event.target.value);
-          }}
-          type="text"
-          placeholder="Search Plant Packages"
-          className="package-search"
-        />
+    <div>
+      <div className="employee-title">
+        <h1>Plant Packages</h1>
       </div>
-      <article className="packages">
-        {filteredPackages.map((plantObj) => {
-          return <PlantPackage plantPackage={plantObj} key={plantObj.id} />;
-        })}
-      </article>
+      <div className="packages-container">
+        <div className="filter-bar">
+          <input
+            onChange={(event) => {
+              setSearchTerm(event.target.value);
+            }}
+            type="text"
+            placeholder="Search Plant Packages"
+            className="package-search"
+          />
+        </div>
+        <article className="packages">
+          {filteredPackages.map((plantObj) => {
+            return <PlantPackage plantPackage={plantObj} key={plantObj.id} />;
+          })}
+        </article>
+      </div>
     </div>
   );
 };
