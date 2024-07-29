@@ -12,7 +12,6 @@ export const PackageList = () => {
     getAllPackages().then((packagesArray) => {
       setAllPackages(packagesArray);
       setFilteredPackages(packagesArray);
-      console.log("Packages Set!");
     });
   }, []);
 

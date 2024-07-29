@@ -1,12 +1,6 @@
-import { Outlet, Route, Routes } from "react-router-dom";
-import { NavBar } from "../components/nav/NavBar";
-import { Welcome } from "../components/welcome/Welcome";
-import { PackageList } from "../components/packages/PackageList";
-import { TicketList } from "../components/tickets/TicketList";
-import { About } from "../components/about/About";
-import { EmployeeList } from "../components/employees/EmployeesList";
-import { Profile } from "../components/profile/Profile";
 import { useEffect, useState } from "react";
+import { EmployeeViews } from "./EmployeeViews";
+import { CustomerViews } from "./CustomerViews";
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -18,28 +12,9 @@ export const ApplicationViews = () => {
     setCurrentUser(plantDaddyUserObject);
   }, []);
 
-  return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <>
-            <NavBar />
-            <Outlet />
-          </>
-        }
-      >
-        <Route index element={<Welcome />} />
-        <Route path="catalog" element={<PackageList />} />
-        <Route path="events" element={<TicketList />} />
-        <Route path="aboutUs" element={<About />} />
-        <Route path="employees" element={<EmployeeList />} />
-        <Route path="profile" element={<Profile />} />
-      </Route>
-      {/* <TicketList />
-<PackageList />
-<CustomerList />
-<EmployeeList /> */}
-    </Routes>
+  return currentUser.isStaff ? (
+    <EmployeeViews currentUser={currentUser} />
+  ) : (
+    <CustomerViews currentUser={currentUser} />
   );
 };

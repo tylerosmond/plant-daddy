@@ -11,7 +11,6 @@ export const TicketList = () => {
   useEffect(() => {
     getAllTickets().then((ticketsArray) => {
       setAllTickets(ticketsArray);
-      console.log("Tickets Set!");
     });
   }, []);
 

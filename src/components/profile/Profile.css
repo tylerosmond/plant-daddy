@@ -1,11 +1,25 @@
 .profile {
+    justify-content: center;
     background-color: var(--white);
     border: 1px solid var(--outline);
     border-radius: 0.5rem;
     padding: 1rem;
   }
-
+  
+  .profile h2 {
+    text-align: center;
+  }
+  
   .profile-info {
+    display: flex;
+    justify-content: center;
     color: var(--info);
     font-family: "Roboto", sans-serif;
   }
+  
+  .profile-column {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem; /* Add some space between the columns */
+  }
+  
