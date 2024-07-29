@@ -25,8 +25,29 @@
   }
 
   .package-info {
-    color: var(--outline);
+    flex: 1;
+    display: flex;
+    align-items: center;
+    color: var(--dark);
     font-family: "Roboto", sans-serif;
+  }
+
+  .package-title {
+    color: var(--primary);
+    font-family: "Roboto", sans-serif;
+  }
+
+  .package-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .package-image {
+    width: 200px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 8px;
   }
 
   /* This targets any footer element that is a child of an element with the .package class */

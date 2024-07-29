@@ -2,16 +2,23 @@
 export const PlantPackage = ({ plantPackage }) => {
   return (
     <section className="package" key={plantPackage.id}>
-      <header className="package-info">Package #{plantPackage.id}</header>
-      <div>
-        <img src={plantPackage.image} alt="image of plant package" />
+      <header>
+        <h2 className="package-title">{plantPackage.name} Package</h2>
+      </header>
+      <div className="package-content">
+        <img
+          className="package-image"
+          src={plantPackage.image}
+          alt="plant package image"
+        />
+
+        <div className="package-info">{plantPackage.description}</div>
       </div>
-      <div className="package-info">
-        Description: {plantPackage.description}
-      </div>
       <div>
-        <div className="package-info">Availability: </div>
-        <div>{plantPackage.availability ? "In Stock" : "Out of Stock"}</div>
+        <div className="package-title">Availability: </div>
+        <div className="package-info">
+          {plantPackage.availability ? "In Stock" : "Out of Stock"}
+        </div>
       </div>
     </section>
   );
