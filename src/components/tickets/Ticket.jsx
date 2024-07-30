@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { getAllEmployees } from "../../services/employeeService";
+import { deleteTicket } from "../../services/ticketService";
 
-export const Ticket = ({ ticket }) => {
+export const Ticket = ({ ticket, currentUser, getAndSetTickets }) => {
   const [employees, setEmployees] = useState([]);
   const [assignedEmployee, setAssignedEmployee] = useState({});
 
@@ -18,6 +19,12 @@ export const Ticket = ({ ticket }) => {
     );
     setAssignedEmployee(foundEmployee);
   }, [employees, ticket]);
+
+  const handleDelete = () => {
+    deleteTicket(ticket.id).then(() => {
+      getAndSetTickets();
+    });
+  };
 
   return (
     <section className="ticket">
@@ -50,6 +57,15 @@ export const Ticket = ({ ticket }) => {
         <div>
           <div className="ticket-info">Status:</div>
           <div>{ticket.active ? "Active" : "Complete"}</div>
+        </div>
+        <div>
+          {!currentUser?.isStaff && ticket.active ? (
+            <button className="btn btn-warning" onClick={handleDelete}>
+              Delete
+            </button>
+          ) : (
+            ""
+          )}
         </div>
       </footer>
     </section>

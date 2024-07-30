@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllTickets } from "../../services/ticketService";
 import "./Tickets.css";
 import { Ticket } from "./Ticket";
+import { useNavigate } from "react-router-dom";
 
 export const TicketList = ({ currentUser }) => {
   const [allTickets, setAllTickets] = useState([]);
@@ -35,6 +36,7 @@ export const TicketList = ({ currentUser }) => {
       setFilteredTickets(allTickets);
     }
   }, [showActiveOnly, allTickets]);
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -43,7 +45,14 @@ export const TicketList = ({ currentUser }) => {
       </div>
       <div className="tickets-container">
         <div className="button-container">
-          <button className="new-event-btn btn-info">New Event</button>
+          <button
+            className="new-event-btn btn-info"
+            onClick={() => {
+              navigate("/events/create");
+            }}
+          >
+            New Event
+          </button>
           <button
             className="filter-btn btn-primary"
             onClick={() => {
@@ -63,7 +72,13 @@ export const TicketList = ({ currentUser }) => {
         </div>
         <article className="tickets">
           {filteredTickets.map((ticketObj) => {
-            return <Ticket ticket={ticketObj} key={ticketObj.id} />;
+            return (
+              <Ticket
+                ticket={ticketObj}
+                key={ticketObj.id}
+                getAndSetTickets={getAndSetTickets}
+              />
+            );
           })}
         </article>
       </div>
