@@ -22,7 +22,10 @@ export const CustomerViews = ({ currentUser }) => {
       >
         <Route index element={<Welcome />} />
         <Route path="catalog" element={<PackageList />} />
-        <Route path="events" element={<TicketList />} />
+        <Route
+          path="events"
+          element={<TicketList currentUser={currentUser} />}
+        />
         <Route path="aboutUs" element={<About />} />
         <Route path="employees" element={<EmployeeList />} />
         <Route

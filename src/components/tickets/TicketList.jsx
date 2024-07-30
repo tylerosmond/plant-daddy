@@ -3,16 +3,27 @@ import { getAllTickets } from "../../services/ticketService";
 import "./Tickets.css";
 import { Ticket } from "./Ticket";
 
-export const TicketList = () => {
+export const TicketList = ({ currentUser }) => {
   const [allTickets, setAllTickets] = useState([]);
   const [showActiveOnly, setShowActiveOnly] = useState(true);
   const [filteredTickets, setFilteredTickets] = useState([]);
 
-  useEffect(() => {
+  const getAndSetTickets = () => {
     getAllTickets().then((ticketsArray) => {
-      setAllTickets(ticketsArray);
+      if (currentUser.isStaff) {
+        setAllTickets(ticketsArray);
+      } else {
+        const customerTickets = ticketsArray.filter(
+          (ticket) => ticket.userId === currentUser.id
+        );
+        setAllTickets(customerTickets);
+      }
     });
-  }, []);
+  };
+
+  useEffect(() => {
+    getAndSetTickets();
+  }, [currentUser]);
 
   useEffect(() => {
     if (showActiveOnly) {
@@ -31,7 +42,7 @@ export const TicketList = () => {
         <h1>Events</h1>
       </div>
       <div className="tickets-container">
-        <div>
+        <div className="button-container">
           <button className="new-event-btn btn-info">New Event</button>
           <button
             className="filter-btn btn-primary"

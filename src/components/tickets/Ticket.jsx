@@ -21,9 +21,23 @@ export const Ticket = ({ ticket }) => {
 
   return (
     <section className="ticket">
-      <header className="ticket-info">Event #{ticket.id}</header>
-      <div>Date: {ticket.dateOfEvent}</div>
-      <div>Description: {ticket.description}</div>
+      <div className="ticket-details">
+        <header className="ticket-info">Event #{ticket.id}</header>
+        <div className="ticket-details-2">
+          <div>Date: {ticket.dateOfEvent}</div>
+          <div>Description: {ticket.description}</div>
+        </div>
+        <div>
+          <div className="ticket-info">Plant Package:</div>
+          <div>{ticket.package.name}</div>
+
+          <img
+            className="package-image"
+            src={ticket.package.image}
+            alt="plant package image"
+          />
+        </div>
+      </div>
       <footer>
         <div>
           <div className="ticket-info">Employee Assigned:</div>
