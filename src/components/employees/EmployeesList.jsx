@@ -14,7 +14,7 @@ export const EmployeeList = () => {
 
   return (
     <div>
-      <div className="employee-title">
+      <div className="title">
         <h1>Employees</h1>
       </div>
       <div className="employees">

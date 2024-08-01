@@ -24,7 +24,7 @@ export const PackageList = () => {
 
   return (
     <div>
-      <div className="employee-title">
+      <div className="title">
         <h1>Plant Packages</h1>
       </div>
       <div className="packages-container">

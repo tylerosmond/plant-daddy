@@ -25,3 +25,13 @@ export const createUser = (customer) => {
     body: JSON.stringify(customer),
   }).then((res) => res.json());
 };
+
+export const updateUser = (customer) => {
+  return fetch(`http://localhost:8088/users/${customer.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(customer),
+  });
+};

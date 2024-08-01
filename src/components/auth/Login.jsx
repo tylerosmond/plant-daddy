@@ -57,7 +57,7 @@ export const Login = () => {
           </fieldset>
         </form>
       </section>
-      <section>
+      <section className="not-member">
         <Link to="/register">Not a member yet?</Link>
       </section>
     </main>

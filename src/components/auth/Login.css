@@ -15,6 +15,7 @@
 .form-login > h1 {
   font-size: 2.5rem;
   text-align: center;
+  color: var(--primary);
 }
 
 .form-login > h2 {
@@ -76,4 +77,17 @@ fieldset {
   box-shadow: none;
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.not-member {
+  display: block; /* Default block-level element behavior */
+  margin: 0 auto; /* Center the container horizontally */
+  color: var(--primary);
+  background-color: var(--white);
+  border: 1px solid var(--outline);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 2rem;
+  text-align: center;
+  max-width: fit-content; /* Adjusts to the content size */
 }

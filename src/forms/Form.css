@@ -37,3 +37,9 @@ form {
     outline: 2px solid transparent;
     outline-offset: 2px;
   }
+
+  .form-title {
+    display: flex;
+    text-align: center;
+    color: var(--primary);
+  }

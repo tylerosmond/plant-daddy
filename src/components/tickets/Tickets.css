@@ -72,7 +72,7 @@
   }
   
   .ticket > footer > div {
-    margin-right: 4rem; /* Add horizontal spacing between items */
+    margin-right: 1rem; /* Add horizontal spacing between items */
   }
   
   /* Add a class for the button container */
@@ -89,11 +89,17 @@
 }
 
   
-  .tickets-title {
-    display: flex;
-    justify-content: center;
-    color: var(--primary);
-  }
+.title-and-btns {
+  display: block; /* Default block-level element behavior */
+  margin: 0 auto; /* Center the container horizontally */
+  color: var(--primary);
+  background-color: var(--white);
+  border: 1px solid var(--outline);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  max-width: fit-content; /* Adjusts to the content size */
+}
 
   .ticket-details {
     display: flex;
@@ -105,4 +111,8 @@
     height: auto;
     margin-right: 20px;
     border-radius: 8px;
+  }
+
+  .edit-btn {
+    margin-right: 1rem;
   }

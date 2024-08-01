@@ -4,6 +4,9 @@
     border: 1px solid var(--outline);
     border-radius: 0.5rem;
     padding: 1rem;
+    margin: 3rem;
+    margin-left: 8rem;
+    margin-right: 8rem;
   }
   
   .profile h2 {
@@ -23,3 +26,9 @@
     margin: 0 1rem; /* Add some space between the columns */
   }
   
+  .btn-container {
+    display:flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 1rem;
+  }

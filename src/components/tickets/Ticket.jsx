@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { getAllEmployees } from "../../services/employeeService";
 import { deleteTicket } from "../../services/ticketService";
+import { Link } from "react-router-dom";
 
 export const Ticket = ({ ticket, currentUser, getAndSetTickets }) => {
   const [employees, setEmployees] = useState([]);
@@ -59,6 +60,13 @@ export const Ticket = ({ ticket, currentUser, getAndSetTickets }) => {
           <div>{ticket.active ? "Active" : "Complete"}</div>
         </div>
         <div>
+          {!currentUser?.isStaff && ticket.active ? (
+            <button className="btn btn-secondary edit-btn">
+              <Link to={`/events/${ticket.id}/edit`}>Edit</Link>
+            </button>
+          ) : (
+            ""
+          )}
           {!currentUser?.isStaff && ticket.active ? (
             <button className="btn btn-warning" onClick={handleDelete}>
               Delete

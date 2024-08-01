@@ -26,7 +26,7 @@ export const Profile = () => {
         setLoggedInUser(currentUser);
       }
     });
-  }, []);
+  }, [userId, location.pathname]);
 
   if (!loggedInUser) {
     return <div>Loading...</div>;
@@ -36,11 +36,11 @@ export const Profile = () => {
   const isEditMode = location.pathname.endsWith("/edit");
 
   return (
-    <div className="profile">
+    <div>
       {isEditMode ? (
         <Outlet /> // Render only the nested route content (CustomerForm)
       ) : (
-        <>
+        <div className="profile">
           <h2>{loggedInUser.user.fullName}&apos;s Profile</h2>
           <div className="profile-info">
             <div className="profile-column">
@@ -52,10 +52,10 @@ export const Profile = () => {
               <div>Address: {loggedInUser.address}</div>
             </div>
           </div>
-          <h4>
+          <button className="btn-primary btn-container">
             <Link to={`/profile/${loggedInUser.user.id}/edit`}>Edit</Link>
-          </h4>
-        </>
+          </button>
+        </div>
       )}
     </div>
   );

@@ -40,35 +40,36 @@ export const TicketList = ({ currentUser }) => {
 
   return (
     <div>
-      <div className="tickets-title">
-        <h1>Events</h1>
-      </div>
       <div className="tickets-container">
-        <div className="button-container">
-          <button
-            className="new-event-btn btn-info"
-            onClick={() => {
-              navigate("/events/create");
-            }}
-          >
-            New Event
-          </button>
-          <button
-            className="filter-btn btn-primary"
-            onClick={() => {
-              setShowActiveOnly(true);
-            }}
-          >
-            Active
-          </button>
-          <button
-            className="filter-btn btn-secondary"
-            onClick={() => {
-              setShowActiveOnly(false);
-            }}
-          >
-            Show All
-          </button>
+        <div className="title-and-btns">
+          <h1>Events</h1>
+
+          <div className="button-container">
+            <button
+              className="new-event-btn btn-info"
+              onClick={() => {
+                navigate("/events/create");
+              }}
+            >
+              New Event
+            </button>
+            <button
+              className="filter-btn btn-primary"
+              onClick={() => {
+                setShowActiveOnly(true);
+              }}
+            >
+              Active
+            </button>
+            <button
+              className="filter-btn btn-secondary"
+              onClick={() => {
+                setShowActiveOnly(false);
+              }}
+            >
+              Show All
+            </button>
+          </div>
         </div>
         <article className="tickets">
           {filteredTickets.map((ticketObj) => {

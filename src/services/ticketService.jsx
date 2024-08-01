@@ -29,3 +29,9 @@ export const createTicket = (ticket) => {
     body: JSON.stringify(ticket),
   });
 };
+
+export const getEventTicket = (ticketId) => {
+  return fetch(`http://localhost:8088/eventTickets/${ticketId}`).then((res) =>
+    res.json(ticketId)
+  );
+};

@@ -8,6 +8,7 @@ import { EmployeeList } from "../components/employees/EmployeesList";
 import { Profile } from "../components/profile/Profile";
 import { CustomerForm } from "../forms/CustomerForm";
 import { EventForm } from "../forms/EventForm";
+import { EditEventForm } from "../forms/EditEventForm";
 
 export const CustomerViews = ({ currentUser }) => {
   return (
@@ -25,7 +26,14 @@ export const CustomerViews = ({ currentUser }) => {
         <Route path="catalog" element={<PackageList />} />
         <Route path="events">
           <Route index element={<TicketList currentUser={currentUser} />} />
-          <Route path="create" element={<EventForm />} />
+          <Route
+            path="create"
+            element={<EventForm currentUser={currentUser} />}
+          />
+          <Route
+            path=":ticketId/edit"
+            element={<EditEventForm currentUser={currentUser} />}
+          />
         </Route>
         <Route path="aboutUs" element={<About />} />
         <Route path="employees" element={<EmployeeList />} />
