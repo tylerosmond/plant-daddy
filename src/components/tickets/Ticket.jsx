@@ -30,7 +30,9 @@ export const Ticket = ({ ticket, currentUser, getAndSetTickets }) => {
   return (
     <section className="ticket">
       <div className="ticket-details">
-        <header className="ticket-info">Event #{ticket.id}</header>
+        <header className="ticket-info">
+          <h2>Event #{ticket.id}</h2>
+        </header>
         <div className="ticket-details-2">
           <div>Date: {ticket.dateOfEvent}</div>
           <div>Description: {ticket.description}</div>

@@ -76,11 +76,12 @@
     font-size: 1rem;
     border: 1px solid var(--outline);
     border-radius: 0.25rem;
-    margin-left: auto;
   }
 
   .filter-bar {
     display: flex;
+    justify-content: center; /* Centers the search bar */
+    margin-top: 1rem;
   }
 
   .title {

@@ -41,15 +41,23 @@ export const Profile = () => {
         <Outlet /> // Render only the nested route content (CustomerForm)
       ) : (
         <div className="profile">
-          <h2>{loggedInUser.user.fullName}&apos;s Profile</h2>
+          <h1>{loggedInUser.user.fullName}&apos;s Profile</h1>
           <div className="profile-info">
             <div className="profile-column">
-              <div>Name: {loggedInUser.user.fullName}</div>
-              <div>Email: {loggedInUser.user.email}</div>
+              <div>
+                <h2>Name: {loggedInUser.user.fullName}</h2>
+              </div>
+              <div>
+                <h2>Email: {loggedInUser.user.email}</h2>
+              </div>
             </div>
             <div className="profile-column">
-              <div>Phone: {loggedInUser.phoneNumber}</div>
-              <div>Address: {loggedInUser.address}</div>
+              <div>
+                <h2>Phone: {loggedInUser.phoneNumber}</h2>
+              </div>
+              <div>
+                <h2>Address: {loggedInUser.address}</h2>
+              </div>
             </div>
           </div>
           <button className="btn-primary btn-container">
