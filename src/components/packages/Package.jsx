@@ -12,7 +12,9 @@ export const PlantPackage = ({ plantPackage }) => {
           alt="plant package image"
         />
 
-        <div className="package-info">{plantPackage.description}</div>
+        <div className="package-info">
+          <h3>{plantPackage.description}</h3>
+        </div>
       </div>
       <div>
         <div className="package-title">Availability: </div>

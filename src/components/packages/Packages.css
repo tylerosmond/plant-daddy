@@ -32,6 +32,14 @@
     font-family: "Roboto", sans-serif;
   }
 
+  .package-info h3 {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    color: var(--dark);
+    font-family: "Roboto", sans-serif;
+  }
+
   .package-title {
     color: var(--primary);
     font-family: "Roboto", sans-serif;
