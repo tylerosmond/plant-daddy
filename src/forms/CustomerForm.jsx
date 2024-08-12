@@ -8,9 +8,12 @@ export const CustomerForm = ({ currentUser }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getAllCustomers(currentUser.id).then((data) => {
-      const customerObj = data[0];
-      setCustomer(customerObj);
+    getAllCustomers().then((data) => {
+      // Find the customer object that matches the current user's ID
+      const customerObj = data.find((cust) => cust.userId === currentUser.id);
+      if (customerObj) {
+        setCustomer(customerObj);
+      }
     });
   }, [currentUser]);
 
